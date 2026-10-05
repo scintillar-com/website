@@ -1,5 +1,21 @@
+"use client";
+
 import type { CoverKind } from "@/content/projects";
 import { cn } from "@/lib/utils";
+
+/** Moves the cover's glow to the pointer. Writes CSS variables directly, so it never re-renders. */
+function followPointer(e: React.PointerEvent<HTMLDivElement>) {
+  if (e.pointerType === "touch") return;
+  const el = e.currentTarget;
+  const box = el.getBoundingClientRect();
+  el.style.setProperty("--glow-x", `${((e.clientX - box.left) / box.width) * 100}%`);
+  el.style.setProperty("--glow-y", `${((e.clientY - box.top) / box.height) * 100}%`);
+}
+
+function resetGlow(e: React.PointerEvent<HTMLDivElement>) {
+  e.currentTarget.style.removeProperty("--glow-x");
+  e.currentTarget.style.removeProperty("--glow-y");
+}
 
 /**
  * Cover art for a project: a small mock of the product's UI drawn with plain markup,
@@ -17,8 +33,10 @@ export function ProjectCover({
   return (
     <div
       aria-hidden="true"
+      onPointerMove={followPointer}
+      onPointerLeave={resetGlow}
       className={cn(
-        "cover relative isolate flex items-center justify-center overflow-hidden rounded-xl border bg-[radial-gradient(120%_90%_at_10%_0%,color-mix(in_oklab,var(--primary)_28%,transparent),transparent_60%),linear-gradient(160deg,color-mix(in_oklab,var(--primary)_14%,var(--card)),var(--card))]",
+        "cover-glow relative isolate flex items-center justify-center overflow-hidden rounded-xl border bg-[radial-gradient(120%_90%_at_var(--glow-x)_var(--glow-y),color-mix(in_oklab,var(--primary)_28%,transparent),transparent_60%),linear-gradient(160deg,color-mix(in_oklab,var(--primary)_14%,var(--card)),var(--card))]",
         size === "sm" ? "aspect-[4/3] text-[6px]" : size === "lg" ? "aspect-[16/10] text-[11px] sm:text-[13px]" : "aspect-[16/10] text-[9px]",
         className,
       )}

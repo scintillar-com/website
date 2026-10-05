@@ -9,6 +9,7 @@ import { cardLabels, toCard } from "@/content/resolve";
 import { ProjectCover } from "@/components/projects/project-cover";
 import { GridCard, StatusBadge } from "@/components/projects/project-card";
 import { CopyCommand } from "@/components/projects/copy-command";
+import { ProjectActivity } from "@/components/projects/project-activity";
 import { GithubIcon } from "@/components/site/github-icon";
 import { Button } from "@/components/ui/button";
 
@@ -144,6 +145,15 @@ export default async function ProjectPage({ params }: Props) {
               <p className="mt-4 rounded-lg border border-dashed p-5 font-light">{project.roadmap[locale]}</p>
             </section>
           ) : null}
+
+          <section aria-labelledby="activity">
+            <h2 id="activity" className="text-2xl">
+              {t.activity.title}
+            </h2>
+            <div className="mt-5">
+              <ProjectActivity github={project.github} locale={locale} t={t.activity} />
+            </div>
+          </section>
         </div>
 
         <aside className="h-fit rounded-2xl border bg-card p-6 lg:sticky lg:top-24">

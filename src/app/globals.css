@@ -75,6 +75,26 @@
   --radius-2xl: calc(var(--radius) + 8px);
 }
 
+/* Project cover glow: registered so the gradient position can animate toward the pointer. */
+@property --glow-x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 10%;
+}
+@property --glow-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+.cover-glow {
+  transition: --glow-x 0.6s ease-out, --glow-y 0.6s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cover-glow {
+    transition: none;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
