@@ -1,0 +1,61 @@
+# Deploys to the Vercel project hosted on the maintainer's personal Vercel account.
+# The Vercel git integration is disconnected; this workflow is the only deploy path.
+#
+# Required repository secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID
+#
+# - Pull requests      -> preview deployment (URL in the job summary)
+# - Published release  -> production deployment
+# - Manual run         -> production deployment (Actions tab > Deploy > Run workflow)
+
+name: Deploy
+
+on:
+  pull_request:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.event_name == 'pull_request' && github.head_ref || 'production' }}
+  cancel-in-progress: true
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Secrets aren't available to PRs from forks, so skip those.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    environment: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Set deploy target
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "TARGET=preview" >> "$GITHUB_ENV"
+            echo "PROD_FLAG=" >> "$GITHUB_ENV"
+          else
+            echo "TARGET=production" >> "$GITHUB_ENV"
+            echo "PROD_FLAG=--prod" >> "$GITHUB_ENV"
+          fi
+
+      - name: Pull Vercel project settings and env vars
+        run: vercel pull --yes --environment=$TARGET --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build
+        run: vercel build $PROD_FLAG --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy
+        run: |
+          url=$(vercel deploy --prebuilt $PROD_FLAG --token=${{ secrets.VERCEL_TOKEN }})
+          echo "Deployed ($TARGET): $url" >> "$GITHUB_STEP_SUMMARY"
