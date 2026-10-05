@@ -19,7 +19,7 @@ const en = {
   home: {
     eyebrow: "A digital playground for open-source tools",
     title: "Self-serve tools for teams that don't need the big bill.",
-    lead: "Free, white-label alternatives to larger and costlier tools. Host them yourself, under your own brand.",
+    lead: "Free, Open-Source, White-Label, One-Command-Deploy, AI-Ready. Host them yourself, under your own brand.",
     browse: "Browse projects",
     github: "Scintillar on GitHub",
     featuredTitle: "Projects",
@@ -31,11 +31,11 @@ const en = {
     isTitle: "What Scintillar is",
     isntTitle: "What Scintillar isn't",
     is: [
-      ["A digital playground", "We build tools we actually need, for fun and at our own pace."],
+      ["A digital playground", "We build tools we actually need, without the sales and support pressure."],
       ["Self-serve alternatives", "Free, lighter options to larger and costlier tools. You host them, so you own them."],
       ["White-label by design", "Every tool takes your logo, colors and domain and runs under your brand."],
       ["Open source", "Code is public and contributions are welcome. A tool may start private while it takes shape, and we say so."],
-      ["Independent tools", "Each one works on its own. Adopt one without taking the rest."],
+      ["Small and composable", "Each project keeps a narrow scope, so it stays small enough to manage and as unopinionated as possible. Projects integrate with each other, but each one works on its own."],
     ],
     isnt: [
       ["A supported product", "There are no SLAs or roadmap promises, and nobody is on call. Help is best-effort, on GitHub."],
@@ -136,7 +136,7 @@ const fr: Dictionary = {
   home: {
     eyebrow: "Un terrain de jeu numérique pour des outils libres",
     title: "Des outils en libre-service pour les équipes qui n'ont pas besoin de la grosse facture.",
-    lead: "Des solutions de rechange gratuites et en marque blanche à des outils plus gros et plus coûteux. Hébergez-les vous-même, sous votre propre marque.",
+    lead: "Gratuits, libres, en marque blanche, déployables en une commande, prêts pour l'IA. Hébergez-les vous-même, sous votre propre marque.",
     browse: "Voir les projets",
     github: "Scintillar sur GitHub",
     featuredTitle: "Projets",
@@ -148,11 +148,11 @@ const fr: Dictionary = {
     isTitle: "Ce qu'est Scintillar",
     isntTitle: "Ce que Scintillar n'est pas",
     is: [
-      ["Un terrain de jeu numérique", "Nous bâtissons des outils dont nous avons vraiment besoin, par plaisir et à notre rythme."],
+      ["Un terrain de jeu numérique", "Nous bâtissons des outils dont nous avons vraiment besoin, sans la pression des ventes et du support."],
       ["Des solutions en libre-service", "Des options gratuites et plus légères que les gros outils coûteux. Vous les hébergez, donc elles vous appartiennent."],
       ["En marque blanche, par conception", "Chaque outil prend votre logo, vos couleurs et votre domaine et fonctionne sous votre marque."],
       ["Libre", "Le code est public et les contributions sont bienvenues. Un outil peut commencer en privé le temps de prendre forme, et on le dit."],
-      ["Des outils indépendants", "Chacun fonctionne seul. Adoptez-en un sans prendre les autres."],
+      ["Petits et composables", "Chaque projet garde une portée étroite, pour rester gérable et aussi peu dogmatique que possible. Les projets s'intègrent entre eux, mais chacun fonctionne seul."],
     ],
     isnt: [
       ["Un produit soutenu", "Il n'y a ni entente de service ni promesse de feuille de route, et personne n'est de garde. L'aide se fait au mieux, sur GitHub."],
