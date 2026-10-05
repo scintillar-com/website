@@ -27,7 +27,7 @@ const en = {
     allProjects: "All projects",
     playgroundTitle: "A playground, not a vendor",
     playgroundBody:
-      "We build these tools for fun and use them for real work, but nobody supports them as products. They change, break and get rewritten. If you use one, you run it yourself. Issues and pull requests are welcome, and we answer them when we have time.",
+      "We build these tools for fun and use them for real work, but nobody supports them as products. They change, break and get rewritten. They're meant for hobbyists and small projects, not for business-critical operations. If you use one, you run it yourself. Issues and pull requests are welcome, and we answer them when we have time.",
     isTitle: "What Scintillar is",
     isntTitle: "What Scintillar isn't",
     is: [
@@ -85,7 +85,7 @@ const en = {
     related: "Related projects",
     copy: "Copy",
     copied: "Copied",
-    asIs: "Provided as is. Help is best-effort, on GitHub.",
+    asIs: "Provided as is, for hobbyists and small projects rather than business-critical use. Help is best-effort, on GitHub.",
   },
   status: {
     available: "Usable",
@@ -155,7 +155,7 @@ const fr: Dictionary = {
     allProjects: "Tous les projets",
     playgroundTitle: "Un terrain de jeu, pas un fournisseur",
     playgroundBody:
-      "Nous construisons ces outils par plaisir et nous nous en servons pour du vrai travail, mais personne ne les soutient comme des produits. Ils changent, brisent et sont réécrits. Si vous en utilisez un, vous l'hébergez vous-même. Les issues et les pull requests sont bienvenues, et nous y répondons quand nous avons le temps.",
+      "Nous construisons ces outils par plaisir et nous nous en servons pour du vrai travail, mais personne ne les soutient comme des produits. Ils changent, brisent et sont réécrits. Ils sont pensés pour les passionnés et les petits projets, pas pour des opérations critiques d'entreprise. Si vous en utilisez un, vous l'hébergez vous-même. Les issues et les pull requests sont bienvenues, et nous y répondons quand nous avons le temps.",
     isTitle: "Ce qu'est Scintillar",
     isntTitle: "Ce que Scintillar n'est pas",
     is: [
@@ -213,7 +213,7 @@ const fr: Dictionary = {
     related: "Projets liés",
     copy: "Copier",
     copied: "Copié",
-    asIs: "Fourni tel quel. L'aide se fait au mieux, sur GitHub.",
+    asIs: "Fourni tel quel, pour les passionnés et les petits projets plutôt que pour un usage critique en entreprise. L'aide se fait au mieux, sur GitHub.",
   },
   status: {
     available: "Utilisable",

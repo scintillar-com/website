@@ -48,7 +48,7 @@ const content: Record<Locale, AboutContent> = {
     title: "A digital playground for self-serve tools",
     lead: "Scintillar builds free, white-label alternatives to larger and costlier tools: docs sites, component registries, feature request boards, support desks and status pages. You host them, put your brand on them and change whatever you need.",
     builtFor: "Built for",
-    audiences: ["Small teams", "Developers", "Designers", "Self-hosters"],
+    audiences: ["Hobbyists", "Small teams", "Developers", "Designers", "Self-hosters"],
     why: {
       eyebrow: "Why Scintillar",
       title: "Big tools come with big bills. We build small ones.",
@@ -70,7 +70,7 @@ const content: Record<Locale, AboutContent> = {
         ],
       ],
       asIsTitle: "Provided as is",
-      asIsBody: "These are tools we use ourselves, shared without sales or support pressure. Help is best-effort, on GitHub.",
+      asIsBody: "These are tools we use ourselves, shared without sales or support pressure. They suit hobbyists and small projects; don't run business-critical operations on them. Help is best-effort, on GitHub.",
     },
     how: {
       eyebrow: "How we build",
@@ -118,7 +118,7 @@ const content: Record<Locale, AboutContent> = {
     title: "Un terrain de jeu numérique pour des outils en libre-service",
     lead: "Scintillar crée des solutions de rechange gratuites et en marque blanche à des outils plus gros et plus coûteux : sites de documentation, registres de composants, tableaux de suggestions, comptoirs de support et pages de statut. Vous les hébergez, vous y mettez votre marque et vous modifiez ce dont vous avez besoin.",
     builtFor: "Conçu pour",
-    audiences: ["Petites équipes", "Développeurs", "Designers", "Autohébergement"],
+    audiences: ["Passionnés", "Petites équipes", "Développeurs", "Designers", "Autohébergement"],
     why: {
       eyebrow: "Pourquoi Scintillar",
       title: "Les gros outils viennent avec de grosses factures. Nous en bâtissons de petits.",
@@ -140,7 +140,7 @@ const content: Record<Locale, AboutContent> = {
         ],
       ],
       asIsTitle: "Fourni tel quel",
-      asIsBody: "Ce sont des outils que nous utilisons nous-mêmes, partagés sans pression de vente ni de support. L'aide se fait au mieux, sur GitHub.",
+      asIsBody: "Ce sont des outils que nous utilisons nous-mêmes, partagés sans pression de vente ni de support. Ils conviennent aux passionnés et aux petits projets; n'y faites pas reposer des opérations critiques d'entreprise. L'aide se fait au mieux, sur GitHub.",
     },
     how: {
       eyebrow: "Notre façon de bâtir",
