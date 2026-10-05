@@ -5,7 +5,7 @@ const en = {
   meta: {
     title: "Scintillar: a digital playground for self-serve, open-source tools",
     description:
-      "Scintillar is a digital playground: a small community building free, white-label, self-serve alternatives to larger, costlier tools for docs, feedback, support, status pages and brands.",
+      "Scintillar is a digital playground where a small community builds free, white-label tools you host yourself, as alternatives to larger and costlier ones.",
   },
   nav: {
     projects: "Projects",
@@ -17,9 +17,9 @@ const en = {
     menu: "Menu",
   },
   home: {
-    eyebrow: "Digital playground · Open source · Self-serve",
-    title: "Self-serve tools, built in the open, for teams that don't need the big bill.",
-    lead: "Scintillar is a digital playground: a small community, for now one person and an AI, building free, white-label alternatives to larger and costlier tools. Docs sites, component registries, feature requests, support and status pages. Built for our own use first, shared as-is for anyone who'd rather run their own.",
+    eyebrow: "A digital playground for open-source tools",
+    title: "Self-serve tools for teams that don't need the big bill.",
+    lead: "Scintillar is a small community, for now one person and an AI, building free, white-label alternatives to larger and costlier tools: docs sites, component registries, feature request boards, support desks and status pages. We build them for our own use and share them as they are, for anyone who would rather run their own.",
     browse: "Browse projects",
     github: "Scintillar on GitHub",
     featuredTitle: "Projects",
@@ -27,19 +27,19 @@ const en = {
     allProjects: "All projects",
     playgroundTitle: "A playground, not a vendor",
     playgroundBody:
-      "These tools are built for fun and for real use, but not as supported products. Things change, break and get rewritten. If you use one, you run it yourself. Issues and pull requests are welcome, and answered when there's time.",
+      "We build these tools for fun and use them for real work, but nobody supports them as products. They change, break and get rewritten. If you use one, you run it yourself. Issues and pull requests are welcome, and we answer them when we have time.",
     isTitle: "What Scintillar is",
     isntTitle: "What Scintillar isn't",
     is: [
-      ["A digital playground", "A place to build useful tools for fun, in the open, at our own pace."],
-      ["Self-serve alternatives", "Lighter, free options to larger, costlier tools. You host them and you own them."],
-      ["White-label by design", "Every tool takes your logo, colors and domain, so it can run under your brand instead of ours."],
+      ["A digital playground", "We build tools we actually need, for fun and at our own pace."],
+      ["Self-serve alternatives", "Free, lighter options to larger and costlier tools. You host them, so you own them."],
+      ["White-label by design", "Every tool takes your logo, colors and domain and runs under your brand."],
       ["Open source", "Code is public and contributions are welcome. A tool may start private while it takes shape, and we say so."],
       ["Independent tools", "Each one works on its own. Adopt one without taking the rest."],
     ],
     isnt: [
-      ["A supported product", "No SLAs, no roadmap promises, no on-call. Help is best-effort, on GitHub."],
-      ["A business", "There's nothing to buy, no plans and no upsells."],
+      ["A supported product", "There are no SLAs or roadmap promises, and nobody is on call. Help is best-effort, on GitHub."],
+      ["A business", "There's nothing to buy and nothing to upgrade to."],
       ["A services company", "Scintillar doesn't sell consulting or client work."],
       ["One platform", "The tools don't lock you into each other or into an account."],
     ],
@@ -50,7 +50,7 @@ const en = {
   },
   projects: {
     title: "Projects",
-    lead: "Free, self-serve and white-label tools, built in the open. Use them as they are.",
+    lead: "Free tools you host yourself and brand as your own, built in the open and provided as they are.",
     browse: "Browse",
     filter: "Filter",
     search: "Search projects",
@@ -85,7 +85,7 @@ const en = {
     related: "Related projects",
     copy: "Copy",
     copied: "Copied",
-    asIs: "Provided as-is, as part of the Scintillar playground. Best-effort help on GitHub.",
+    asIs: "Provided as is. Help is best-effort, on GitHub.",
   },
   status: {
     available: "Usable",
@@ -105,10 +105,10 @@ const en = {
     explore: "Explore",
     legal: "Legal",
     privacy: "Privacy",
-    rights: "Scintillar. Code under each project's license, provided as-is.",
+    rights: "Scintillar. Each project's code is under its own license and provided as is.",
   },
   consent: {
-    body: "We'd like to use Google Analytics to count visits. No ads, no selling data.",
+    body: "We'd like to use Google Analytics to count visits. We don't run ads or sell data.",
     accept: "Accept",
     decline: "Decline",
     learn: "Privacy policy",
@@ -121,7 +121,7 @@ const fr: Dictionary = {
   meta: {
     title: "Scintillar : un terrain de jeu numérique pour des outils libres en libre-service",
     description:
-      "Scintillar est un terrain de jeu numérique : une petite communauté qui crée des solutions de rechange gratuites, en marque blanche et en libre-service à des outils plus gros et plus coûteux, pour la documentation, les suggestions, le support, les pages de statut et les marques.",
+      "Scintillar est un terrain de jeu numérique où une petite communauté crée des outils gratuits en marque blanche, à héberger soi-même, pour remplacer des outils plus gros et plus coûteux.",
   },
   nav: {
     projects: "Projets",
@@ -133,9 +133,9 @@ const fr: Dictionary = {
     menu: "Menu",
   },
   home: {
-    eyebrow: "Terrain de jeu numérique · Libre · Libre-service",
-    title: "Des outils en libre-service, bâtis en public, pour les équipes qui n'ont pas besoin de la grosse facture.",
-    lead: "Scintillar est un terrain de jeu numérique : une petite communauté, pour l'instant une personne et une IA, qui crée des solutions de rechange gratuites et en marque blanche à des outils plus gros et plus coûteux. Sites de documentation, registres de composants, suggestions, support et pages de statut. Construits d'abord pour notre propre usage, partagés tels quels pour quiconque préfère héberger les siens.",
+    eyebrow: "Un terrain de jeu numérique pour des outils libres",
+    title: "Des outils en libre-service pour les équipes qui n'ont pas besoin de la grosse facture.",
+    lead: "Scintillar est une petite communauté, pour l'instant une personne et une IA, qui crée des solutions de rechange gratuites et en marque blanche à des outils plus gros et plus coûteux : sites de documentation, registres de composants, tableaux de suggestions, comptoirs de support et pages de statut. Nous les construisons pour notre propre usage et les partageons tels quels, pour quiconque préfère héberger les siens.",
     browse: "Voir les projets",
     github: "Scintillar sur GitHub",
     featuredTitle: "Projets",
@@ -143,19 +143,19 @@ const fr: Dictionary = {
     allProjects: "Tous les projets",
     playgroundTitle: "Un terrain de jeu, pas un fournisseur",
     playgroundBody:
-      "Ces outils sont construits pour le plaisir et pour un vrai usage, mais pas comme des produits soutenus. Les choses changent, brisent et sont réécrites. Si vous en utilisez un, vous l'hébergez vous-même. Les issues et les pull requests sont bienvenues, et traitées quand le temps le permet.",
+      "Nous construisons ces outils par plaisir et nous nous en servons pour du vrai travail, mais personne ne les soutient comme des produits. Ils changent, brisent et sont réécrits. Si vous en utilisez un, vous l'hébergez vous-même. Les issues et les pull requests sont bienvenues, et nous y répondons quand nous avons le temps.",
     isTitle: "Ce qu'est Scintillar",
     isntTitle: "Ce que Scintillar n'est pas",
     is: [
-      ["Un terrain de jeu numérique", "Un endroit pour bâtir des outils utiles par plaisir, en public, à notre rythme."],
-      ["Des solutions en libre-service", "Des options plus légères et gratuites que les gros outils coûteux. Vous les hébergez, elles vous appartiennent."],
-      ["En marque blanche, par conception", "Chaque outil prend votre logo, vos couleurs et votre domaine, pour fonctionner sous votre marque plutôt que la nôtre."],
+      ["Un terrain de jeu numérique", "Nous bâtissons des outils dont nous avons vraiment besoin, par plaisir et à notre rythme."],
+      ["Des solutions en libre-service", "Des options gratuites et plus légères que les gros outils coûteux. Vous les hébergez, donc elles vous appartiennent."],
+      ["En marque blanche, par conception", "Chaque outil prend votre logo, vos couleurs et votre domaine et fonctionne sous votre marque."],
       ["Libre", "Le code est public et les contributions sont bienvenues. Un outil peut commencer en privé le temps de prendre forme, et on le dit."],
       ["Des outils indépendants", "Chacun fonctionne seul. Adoptez-en un sans prendre les autres."],
     ],
     isnt: [
-      ["Un produit soutenu", "Pas d'entente de service, pas de promesses de feuille de route, pas de garde. L'aide se fait au mieux, sur GitHub."],
-      ["Une entreprise", "Il n'y a rien à acheter, ni forfaits, ni offres payantes."],
+      ["Un produit soutenu", "Il n'y a ni entente de service ni promesse de feuille de route, et personne n'est de garde. L'aide se fait au mieux, sur GitHub."],
+      ["Une entreprise", "Il n'y a rien à acheter ni de forfait supérieur."],
       ["Une firme de services", "Scintillar ne vend ni consultation ni mandats clients."],
       ["Une plateforme unique", "Les outils ne vous enferment ni les uns dans les autres, ni dans un compte."],
     ],
@@ -166,7 +166,7 @@ const fr: Dictionary = {
   },
   projects: {
     title: "Projets",
-    lead: "Des outils gratuits, en libre-service et en marque blanche, bâtis en public. À utiliser tels quels.",
+    lead: "Des outils gratuits à héberger vous-même et à votre marque, bâtis en public et fournis tels quels.",
     browse: "Parcourir",
     filter: "Filtrer",
     search: "Rechercher un projet",
@@ -201,7 +201,7 @@ const fr: Dictionary = {
     related: "Projets liés",
     copy: "Copier",
     copied: "Copié",
-    asIs: "Fourni tel quel, dans le cadre du terrain de jeu Scintillar. Aide au mieux sur GitHub.",
+    asIs: "Fourni tel quel. L'aide se fait au mieux, sur GitHub.",
   },
   status: {
     available: "Utilisable",
@@ -221,10 +221,10 @@ const fr: Dictionary = {
     explore: "Explorer",
     legal: "Légal",
     privacy: "Confidentialité",
-    rights: "Scintillar. Code sous la licence de chaque projet, fourni tel quel.",
+    rights: "Scintillar. Le code de chaque projet est sous sa propre licence et fourni tel quel.",
   },
   consent: {
-    body: "Nous aimerions utiliser Google Analytics pour compter les visites. Pas de publicité, pas de vente de données.",
+    body: "Nous aimerions utiliser Google Analytics pour compter les visites. Nous n'affichons pas de publicité et ne vendons pas de données.",
     accept: "Accepter",
     decline: "Refuser",
     learn: "Politique de confidentialité",
