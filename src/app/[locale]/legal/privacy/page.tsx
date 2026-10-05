@@ -13,7 +13,7 @@ const content: Record<Locale, { title: string; updated: string; sections: [strin
     sections: [
       [
         "What this covers",
-        "This policy covers the scintillar.com website. Each Scintillar project you install or self-host runs on your own infrastructure and doesn't send data to Scintillar.",
+        "This policy covers the scintillar.com website. Each Scintillar tool you install or self-host runs on your own infrastructure and doesn't send data to Scintillar.",
       ],
       [
         "What we collect",
@@ -39,7 +39,7 @@ const content: Record<Locale, { title: string; updated: string; sections: [strin
     sections: [
       [
         "Portée",
-        "Cette politique s'applique au site scintillar.com. Chaque projet Scintillar que vous installez ou hébergez vous-même fonctionne sur votre propre infrastructure et n'envoie aucune donnée à Scintillar.",
+        "Cette politique s'applique au site scintillar.com. Chaque outil Scintillar que vous installez ou hébergez vous-même fonctionne sur votre propre infrastructure et n'envoie aucune donnée à Scintillar.",
       ],
       [
         "Ce que nous recueillons",

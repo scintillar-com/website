@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const t = getDictionary(locale);
-  return { title: t.projects.title, description: t.projects.lead, alternates: { canonical: `/${locale}/projects` } };
+  return { title: t.projects.title, description: t.projects.lead, alternates: { canonical: `/${locale}/tools` } };
 }
 
 export default async function ProjectsPage({ params }: Props) {

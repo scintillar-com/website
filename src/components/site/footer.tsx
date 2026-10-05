@@ -27,9 +27,9 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
             </a>
           </div>
           <FooterColumn title={t.footer.explore}>
-            <FooterLink href={`/${locale}/projects`}>{t.nav.projects}</FooterLink>
+            <FooterLink href={`/${locale}/tools`}>{t.nav.projects}</FooterLink>
             {available.map((p) => (
-              <FooterLink key={p.slug} href={`/${locale}/projects/${p.slug}`}>
+              <FooterLink key={p.slug} href={`/${locale}/tools/${p.slug}`}>
                 {p.name}
               </FooterLink>
             ))}

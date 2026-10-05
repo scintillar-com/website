@@ -10,7 +10,7 @@ import { GITHUB_ORG } from "@/lib/site";
 
 export function Navbar({ locale, t }: { locale: Locale; t: Dictionary }) {
   const links = [
-    { href: `/${locale}/projects`, label: t.nav.projects },
+    { href: `/${locale}/tools`, label: t.nav.projects },
     { href: `/${locale}/about`, label: t.nav.about },
   ];
 

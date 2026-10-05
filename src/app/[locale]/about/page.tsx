@@ -106,8 +106,8 @@ const content: Record<Locale, AboutContent> = {
     },
     cta: {
       title: "Come play",
-      body: "Try a project, open an issue or send a pull request.",
-      browse: "Browse projects",
+      body: "Try a tool, open an issue or send a pull request.",
+      browse: "Browse tools",
       github: "GitHub",
       involved: "Get involved as",
       roles: ["Contributor", "Designer", "Tester", "User"],
@@ -176,8 +176,8 @@ const content: Record<Locale, AboutContent> = {
     },
     cta: {
       title: "Venez jouer",
-      body: "Essayez un projet, ouvrez une issue ou envoyez une pull request.",
-      browse: "Voir les projets",
+      body: "Essayez un outil, ouvrez une issue ou envoyez une pull request.",
+      browse: "Voir les outils",
       github: "GitHub",
       involved: "Participez comme",
       roles: ["Contributeur", "Designer", "Testeur", "Utilisateur"],
@@ -319,7 +319,7 @@ export default async function AboutPage({ params }: Props) {
         <p className="mt-3 font-light text-muted-foreground">{c.cta.body}</p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button asChild size="lg">
-            <Link href={`/${locale}/projects`}>
+            <Link href={`/${locale}/tools`}>
               {c.cta.browse}
               <ArrowRight className="size-4" />
             </Link>

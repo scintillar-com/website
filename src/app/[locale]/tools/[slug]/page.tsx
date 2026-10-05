@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: project.name,
     description: project.pitch[locale],
     alternates: {
-      canonical: `/${locale}/projects/${slug}`,
-      languages: Object.fromEntries(locales.map((l) => [l, `/${l}/projects/${slug}`])),
+      canonical: `/${locale}/tools/${slug}`,
+      languages: Object.fromEntries(locales.map((l) => [l, `/${l}/tools/${slug}`])),
     },
   };
 }
@@ -50,7 +50,7 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <article className="mx-auto max-w-6xl px-4 pt-10 sm:px-6">
       <Link
-        href={`/${locale}/projects`}
+        href={`/${locale}/tools`}
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
         <ArrowLeft className="size-4" />

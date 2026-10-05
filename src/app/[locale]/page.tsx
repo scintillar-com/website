@@ -32,7 +32,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <p className="mx-auto mt-8 max-w-3xl text-lg font-thin leading-relaxed sm:text-xl">{h.lead}</p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row md:justify-center">
           <Button asChild size="lg">
-            <Link href={`/${locale}/projects`}>
+            <Link href={`/${locale}/tools`}>
               {h.browse}
               <ArrowRight className="size-4" />
             </Link>
@@ -56,7 +56,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p className="mt-2 font-light text-muted-foreground">{h.featuredLead}</p>
           </div>
           <Link
-            href={`/${locale}/projects`}
+            href={`/${locale}/tools`}
             className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary"
           >
             {h.allProjects}

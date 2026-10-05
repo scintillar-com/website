@@ -75,21 +75,24 @@ const Bar = ({ w, className }: { w: string; className?: string }) => (
 
 const covers: Record<CoverKind, React.ReactNode> = {
   docs: (
-    <Window title="docs / getting-started.mdx">
+    <Window title="docs.yourbrand.com">
       <div className="flex gap-[1em]">
         <div className="w-[28%] space-y-[0.7em] border-r pr-[0.8em]">
           <span className="block rounded-[0.3em] bg-primary/15 px-[0.4em] py-[0.2em] font-bold text-primary">v2.8</span>
-          {["Intro", "Install", "Config", "Theming"].map((x, i) => (
+          {["Welcome", "Getting started", "Guides", "FAQ"].map((x, i) => (
             <span key={x} className={cn("block truncate", i === 1 ? "font-bold text-primary" : "text-muted-foreground")}>
               {x}
             </span>
           ))}
         </div>
         <div className="flex-1 space-y-[0.7em]">
-          <span className="block text-[1.5em] font-bold">Install</span>
+          <span className="block text-[1.5em] font-bold">Getting started</span>
           <Bar w="92%" />
           <Bar w="70%" />
-          <span className="block rounded-[0.4em] bg-foreground px-[0.6em] py-[0.5em] text-background">$ npx registry-shell init</span>
+          <span className="flex items-center justify-between rounded-[0.4em] border px-[0.6em] py-[0.5em] text-muted-foreground">
+            <span className="truncate">Search docs…</span>
+            <span className="shrink-0 rounded-[0.3em] bg-muted px-[0.4em]">⌘K</span>
+          </span>
           <Bar w="80%" />
         </div>
       </div>
@@ -97,7 +100,7 @@ const covers: Record<CoverKind, React.ReactNode> = {
   ),
   components: (
     <div className="grid grid-cols-2 gap-[0.8em]">
-      <Window title="button" className="col-span-2">
+      <Window title="Buttons" className="col-span-2">
         <div className="flex flex-wrap gap-[0.5em]">
           <span className="rounded-[0.4em] bg-primary px-[0.9em] py-[0.4em] font-bold text-primary-foreground">Primary</span>
           <span className="rounded-[0.4em] border px-[0.9em] py-[0.4em]">Outline</span>
@@ -117,13 +120,13 @@ const covers: Record<CoverKind, React.ReactNode> = {
     </div>
   ),
   tokens: (
-    <Window title="tokens.json · conflict check">
+    <Window title="Design check">
       <div className="space-y-[0.6em]">
         {[
-          ["color.surface.raised", "ok"],
-          ["color.text.on-primary", "ok"],
-          ["space.inset.card", "conflict"],
-          ["radius.control", "ok"],
+          ["Primary button", "ok"],
+          ["Card background", "ok"],
+          ["Error message", "conflict"],
+          ["Link color", "ok"],
         ].map(([name, state]) => (
           <div key={name} className="flex items-center justify-between gap-[0.6em]">
             <span className="truncate">{name}</span>
@@ -133,7 +136,7 @@ const covers: Record<CoverKind, React.ReactNode> = {
                 state === "ok" ? "bg-primary/15 text-primary" : "bg-destructive/15 text-destructive",
               )}
             >
-              {state === "ok" ? "✓" : "0.94 → escalate"}
+              {state === "ok" ? "✓" : "Clash · fix suggested"}
             </span>
           </div>
         ))}
@@ -142,7 +145,7 @@ const covers: Record<CoverKind, React.ReactNode> = {
   ),
   brand: (
     <div className="flex items-end gap-[0.8em]">
-      <Window title="brand-kit/" className="flex-1">
+      <Window title="Brand kit" className="flex-1">
         <div className="space-y-[0.45em]">
           {["assets/", "fonts/", "logos/", "prints/", "guide.pdf", "estimate.csv"].map((x, i) => (
             <span key={x} className={cn("block", i > 3 ? "text-primary" : "text-muted-foreground")}>
@@ -164,7 +167,7 @@ const covers: Record<CoverKind, React.ReactNode> = {
     </div>
   ),
   upvotes: (
-    <Window title="feedback / my-product">
+    <Window title="Feedback · My product">
       <div className="space-y-[0.6em]">
         {[
           ["Dark mode for the editor", 128, true],
@@ -188,7 +191,7 @@ const covers: Record<CoverKind, React.ReactNode> = {
     </Window>
   ),
   tickets: (
-    <Window title="support · inbox">
+    <Window title="Support · Inbox">
       <div className="space-y-[0.55em]">
         {[
           ["#1042", "Can't reset password", "GitHub"],
@@ -205,7 +208,7 @@ const covers: Record<CoverKind, React.ReactNode> = {
     </Window>
   ),
   uptime: (
-    <Window title="status.example.com">
+    <Window title="status.yourbrand.com">
       <div className="mb-[0.8em] flex items-center gap-[0.5em] font-bold">
         <span className="size-[0.8em] animate-pulse rounded-full bg-primary" />
         All systems operational

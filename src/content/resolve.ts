@@ -8,7 +8,7 @@ import type { Project } from "./projects";
 export function toCard(p: Project, locale: Locale, t: Dictionary): CardProject {
   return {
     slug: p.slug,
-    href: `/${locale}/projects/${p.slug}`,
+    href: `/${locale}/tools/${p.slug}`,
     name: p.name,
     kind: p.kind[locale],
     pitch: p.pitch[locale],
