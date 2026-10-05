@@ -5,7 +5,7 @@ const en = {
   meta: {
     title: "Scintillar: a digital playground for self-serve, open-source tools",
     description:
-      "Scintillar is a digital playground where a small community builds free, white-label tools you host yourself, as alternatives to larger and costlier ones.",
+      "Scintillar is a digital playground of free, white-label tools you host yourself, built as alternatives to larger and costlier ones.",
   },
   nav: {
     projects: "Projects",
@@ -19,7 +19,7 @@ const en = {
   home: {
     eyebrow: "A digital playground for open-source tools",
     title: "Self-serve tools for teams that don't need the big bill.",
-    lead: "Scintillar is a small community, for now one person and an AI, building free, white-label alternatives to larger and costlier tools: docs sites, component registries, feature request boards, support desks and status pages. We build them for our own use and share them as they are, for anyone who would rather run their own.",
+    lead: "Scintillar builds free, white-label alternatives to larger and costlier tools: docs sites, component registries, feature request boards, support desks and status pages. We build them for our own use and share them as they are, for anyone who would rather run their own. The community around them is open to anyone who wants to help.",
     browse: "Browse projects",
     github: "Scintillar on GitHub",
     featuredTitle: "Projects",
@@ -121,7 +121,7 @@ const fr: Dictionary = {
   meta: {
     title: "Scintillar : un terrain de jeu numérique pour des outils libres en libre-service",
     description:
-      "Scintillar est un terrain de jeu numérique où une petite communauté crée des outils gratuits en marque blanche, à héberger soi-même, pour remplacer des outils plus gros et plus coûteux.",
+      "Scintillar est un terrain de jeu numérique d'outils gratuits en marque blanche, à héberger soi-même, pour remplacer des outils plus gros et plus coûteux.",
   },
   nav: {
     projects: "Projets",
@@ -135,7 +135,7 @@ const fr: Dictionary = {
   home: {
     eyebrow: "Un terrain de jeu numérique pour des outils libres",
     title: "Des outils en libre-service pour les équipes qui n'ont pas besoin de la grosse facture.",
-    lead: "Scintillar est une petite communauté, pour l'instant une personne et une IA, qui crée des solutions de rechange gratuites et en marque blanche à des outils plus gros et plus coûteux : sites de documentation, registres de composants, tableaux de suggestions, comptoirs de support et pages de statut. Nous les construisons pour notre propre usage et les partageons tels quels, pour quiconque préfère héberger les siens.",
+    lead: "Scintillar crée des solutions de rechange gratuites et en marque blanche à des outils plus gros et plus coûteux : sites de documentation, registres de composants, tableaux de suggestions, comptoirs de support et pages de statut. Nous les construisons pour notre propre usage et les partageons tels quels, pour quiconque préfère héberger les siens. La communauté qui les entoure est ouverte à quiconque veut aider.",
     browse: "Voir les projets",
     github: "Scintillar sur GitHub",
     featuredTitle: "Projets",
