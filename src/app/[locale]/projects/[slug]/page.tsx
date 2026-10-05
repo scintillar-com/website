@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Check, Globe, Lock, Package } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, FlaskConical, Globe, Lock, Package } from "lucide-react";
 import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { categoryInfo, getProject, projects } from "@/content/projects";
@@ -152,12 +152,27 @@ export default async function ProjectPage({ params }: Props) {
             <Meta label={tp.category}>{categoryInfo[project.category].title[locale]}</Meta>
             <Meta label={tp.license}>{project.license ?? tp.noLicense}</Meta>
             <Meta label={tp.links}>
-              <ul className="space-y-1.5">
-                {project.github && <SideLink href={project.github}>{project.github.replace("https://", "")}</SideLink>}
-                {project.links?.live && <SideLink href={project.links.live}>{project.links.live.replace("https://", "")}</SideLink>}
-                {project.links?.npm && <SideLink href={project.links.npm}>npmjs.com</SideLink>}
-                {!project.github && !project.links && <li className="text-muted-foreground">{t.projects.noRepo}</li>}
-              </ul>
+              {project.github || project.links ? (
+                <ul className="flex flex-wrap gap-2">
+                  {project.github && (
+                    <IconLink href={project.github} label={tp.github}>
+                      <GithubIcon className="size-4" />
+                    </IconLink>
+                  )}
+                  {project.links?.live && (
+                    <IconLink href={project.links.live} label={tp.live}>
+                      <Globe className="size-4" />
+                    </IconLink>
+                  )}
+                  {project.links?.npm && (
+                    <IconLink href={project.links.npm} label={tp.npm}>
+                      <Package className="size-4" />
+                    </IconLink>
+                  )}
+                </ul>
+              ) : (
+                <span className="text-muted-foreground">{project.repoPrivate ? t.projects.privateRepo : t.projects.noRepo}</span>
+              )}
             </Meta>
           </dl>
           <ul className="mt-6 flex flex-wrap gap-1.5">
@@ -167,6 +182,10 @@ export default async function ProjectPage({ params }: Props) {
               </li>
             ))}
           </ul>
+          <p className="mt-6 flex gap-2 border-t pt-5 text-xs font-light text-muted-foreground">
+            <FlaskConical className="size-4 shrink-0 text-primary" aria-hidden="true" />
+            {tp.asIs}
+          </p>
         </aside>
       </div>
 
@@ -195,11 +214,18 @@ function Meta({ label, children }: { label: string; children: React.ReactNode })
   );
 }
 
-function SideLink({ href, children }: { href: string; children: React.ReactNode }) {
+function IconLink({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
   return (
     <li>
-      <a href={href} target="_blank" rel="noreferrer" className="break-all text-primary underline-offset-4 hover:underline">
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        title={href}
+        className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition-colors hover:border-primary/50 hover:text-primary"
+      >
         {children}
+        {label}
       </a>
     </li>
   );

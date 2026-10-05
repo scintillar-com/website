@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, CircleCheck, Lightbulb, LoaderCircle, Lock, MoonStar, Scale } from "lucide-react";
+import { ArrowUpRight, CircleCheck, Lightbulb, LoaderCircle, Lock, Scale } from "lucide-react";
 import type { Category, CoverKind, Status } from "@/content/projects";
 import { GithubIcon } from "@/components/site/github-icon";
 import { cn } from "@/lib/utils";
@@ -33,7 +33,6 @@ const statusIcon: Record<Status, typeof CircleCheck> = {
   available: CircleCheck,
   "in-progress": LoaderCircle,
   planned: Lightbulb,
-  someday: MoonStar,
 };
 
 export function StatusBadge({ status, label, className }: { status: Status; label: string; className?: string }) {
@@ -45,7 +44,6 @@ export function StatusBadge({ status, label, className }: { status: Status; labe
         status === "available" && "border-primary/40 bg-primary/12 text-primary",
         status === "in-progress" && "border-primary/30 text-primary",
         status === "planned" && "border-border text-muted-foreground",
-        status === "someday" && "border-dashed border-border text-muted-foreground",
         className,
       )}
     >

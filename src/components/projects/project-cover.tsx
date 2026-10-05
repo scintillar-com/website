@@ -86,13 +86,13 @@ const covers: Record<CoverKind, React.ReactNode> = {
           <span className="rounded-[0.4em] px-[0.9em] py-[0.4em] text-muted-foreground">Ghost</span>
         </div>
       </Window>
-      <div className="rounded-[0.8em] border bg-background/95 p-[0.9em] shadow-lg">
+      <div className="min-w-0 rounded-[0.8em] border bg-background/95 p-[0.9em] shadow-lg">
         <span className="mb-[0.5em] block text-muted-foreground">Email</span>
-        <span className="block rounded-[0.4em] border px-[0.6em] py-[0.4em]">ada@lovelace.dev</span>
+        <span className="block truncate rounded-[0.4em] border px-[0.6em] py-[0.4em]">ada@sntlr.app</span>
       </div>
-      <div className="flex items-center justify-between rounded-[0.8em] border bg-background/95 p-[0.9em] shadow-lg">
-        <span>Live cursors</span>
-        <span className="flex h-[1.4em] w-[2.4em] items-center justify-end rounded-full bg-primary p-[0.2em]">
+      <div className="flex min-w-0 items-center justify-between gap-[0.5em] rounded-[0.8em] border bg-background/95 p-[0.9em] shadow-lg">
+        <span className="truncate">Live cursors</span>
+        <span className="flex h-[1.4em] w-[2.4em] shrink-0 items-center justify-end rounded-full bg-primary p-[0.2em]">
           <span className="size-[1em] rounded-full bg-primary-foreground" />
         </span>
       </div>
@@ -209,26 +209,5 @@ const covers: Record<CoverKind, React.ReactNode> = {
         </div>
       ))}
     </Window>
-  ),
-  network: (
-    <svg viewBox="0 0 200 120" className="w-full drop-shadow-[0_0_12px_color-mix(in_oklab,var(--primary)_40%,transparent)]">
-      <g stroke="var(--primary)" strokeOpacity="0.55" strokeWidth="1">
-        <path d="M20 90 L60 40 L110 60 L150 20 L185 55 M60 40 L70 100 L130 95 L110 60 M130 95 L185 55" fill="none" />
-      </g>
-      {[
-        [20, 90],
-        [60, 40],
-        [110, 60],
-        [150, 20],
-        [185, 55],
-        [70, 100],
-        [130, 95],
-      ].map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r={i === 2 ? 6 : 4} fill={i === 2 ? "var(--destructive)" : "var(--primary)"} />
-      ))}
-      <text x="116" y="52" fontSize="8" fill="var(--foreground)" fontFamily="inherit">
-        root@node-3
-      </text>
-    </svg>
   ),
 };

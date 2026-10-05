@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check, FlaskConical, X } from "lucide-react";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { getProject, projects } from "@/content/projects";
+import { projects } from "@/content/projects";
 import { cardLabels, toCard } from "@/content/resolve";
 import { CompactCard, FeatureCard } from "@/components/projects/project-card";
-import { ProjectCover } from "@/components/projects/project-cover";
 import { GithubIcon } from "@/components/site/github-icon";
 import { Button } from "@/components/ui/button";
 import { GITHUB_ORG } from "@/lib/site";
@@ -20,10 +19,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   const lead = toCard(projects.find((p) => p.slug === "docs-shell")!, locale, t);
   const side = projects
-    .filter((p) => p.slug !== "docs-shell" && p.status !== "someday")
+    .filter((p) => p.slug !== "docs-shell")
     .slice(0, 4)
     .map((p) => toCard(p, locale, t));
-  const someday = getProject("hacking-framework")!;
 
   return (
     <>
@@ -83,22 +81,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* Someday */}
+      {/* Playground, not a vendor */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid items-center gap-10 rounded-3xl border border-dashed p-6 sm:p-10 md:grid-cols-2">
+        <div className="flex flex-col gap-6 rounded-3xl border border-dashed p-6 sm:flex-row sm:items-start sm:p-10">
+          <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+            <FlaskConical className="size-6" aria-hidden="true" />
+          </span>
           <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">{h.somedayEyebrow}</p>
-            <h2 className="mt-3 text-3xl">{h.somedayTitle}</h2>
-            <p className="mt-4 font-light leading-relaxed text-muted-foreground">{h.somedayBody}</p>
-            <Link
-              href={`/${locale}/projects/${someday.slug}`}
-              className="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary"
-            >
-              {h.somedayCta}
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
+            <h2 className="text-2xl sm:text-3xl">{h.playgroundTitle}</h2>
+            <p className="mt-3 max-w-3xl font-light leading-relaxed text-muted-foreground">{h.playgroundBody}</p>
           </div>
-          <ProjectCover kind={someday.cover} className="opacity-80 grayscale-[40%]" />
         </div>
       </section>
 

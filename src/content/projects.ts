@@ -1,13 +1,13 @@
 import type { Locale, Localized } from "@/i18n/config";
 
-export const statuses = ["available", "in-progress", "planned", "someday"] as const;
+export const statuses = ["available", "in-progress", "planned"] as const;
 export type Status = (typeof statuses)[number];
 
-export const categories = ["docs-design", "feedback-support", "operations", "experiments"] as const;
+export const categories = ["docs-design", "feedback-support", "operations"] as const;
 export type Category = (typeof categories)[number];
 
 /** Which mock UI the project's cover renders (see components/projects/project-cover.tsx). */
-export type CoverKind = "docs" | "components" | "tokens" | "brand" | "upvotes" | "tickets" | "uptime" | "network";
+export type CoverKind = "docs" | "components" | "tokens" | "brand" | "upvotes" | "tickets" | "uptime";
 
 export interface Project {
   slug: string;
@@ -58,31 +58,24 @@ export const categoryInfo: Record<Category, { title: Localized; description: Loc
       fr: "Tenir les gens informés de l'état des services que vous opérez.",
     },
   },
-  experiments: {
-    title: { en: "Experiments", fr: "Expériences" },
-    description: {
-      en: "Side projects for later. Not the mission, but on the list.",
-      fr: "Des projets pour plus tard. Pas la mission, mais sur la liste.",
-    },
-  },
 };
 
 export const projects: Project[] = [
   {
     slug: "docs-shell",
-    name: "docs-shell",
-    kind: { en: "Documentation engine", fr: "Moteur de documentation" },
+    name: "Docs Shell",
+    kind: { en: "Docs and component-registry engine", fr: "Moteur de documentation et de registre de composants" },
     pitch: {
-      en: "Turn a folder of MDX into a versioned, searchable docs site.",
-      fr: "Transformez un dossier MDX en site de documentation versionné et consultable.",
+      en: "Turn MDX into a versioned docs site, or into a component registry with Registry Shell.",
+      fr: "Transformez du MDX en site de documentation versionné, ou en registre de composants avec Registry Shell.",
     },
     description: {
-      en: "docs-shell builds a static documentation site from your MDX files, with versioned docs, English and French out of the box, full-text search and a theme panel. Its registry preset, registry-shell, adds what a shadcn-style component registry needs: live previews, install commands, and props, accessibility and test tabs.",
-      fr: "docs-shell génère un site de documentation statique à partir de vos fichiers MDX : documentation versionnée, anglais et français inclus, recherche plein texte et panneau de thème. Son préréglage registry-shell ajoute ce qu'il faut à un registre de composants de style shadcn : aperçus en direct, commandes d'installation et onglets props, accessibilité et tests.",
+      en: "Docs Shell builds a static documentation site from your MDX files, with versioned docs, English and French out of the box, full-text search and a theme panel. Registry Shell is Docs Shell with its registry module turned on: everything a shadcn-style component registry needs, with live previews, install commands, and props, accessibility and test tabs. Scintillar UI runs on it. Packages: @sntlr/docs-shell and @sntlr/registry-shell.",
+      fr: "Docs Shell génère un site de documentation statique à partir de vos fichiers MDX : documentation versionnée, anglais et français inclus, recherche plein texte et panneau de thème. Registry Shell, c'est Docs Shell avec son module de registre activé : tout ce qu'il faut à un registre de composants de style shadcn, avec aperçus en direct, commandes d'installation et onglets props, accessibilité et tests. Scintillar UI fonctionne avec. Paquets : @sntlr/docs-shell et @sntlr/registry-shell.",
     },
     status: "available",
     category: "docs-design",
-    tags: { en: ["Docs", "MDX", "Registry", "Next.js"], fr: ["Docs", "MDX", "Registre", "Next.js"] },
+    tags: { en: ["Docs", "MDX", "Registry Shell", "Next.js"], fr: ["Docs", "MDX", "Registry Shell", "Next.js"] },
     license: "MIT",
     github: "https://github.com/scintillar-com/registry-shell",
     links: { live: "https://ui.sntlr.app", npm: "https://www.npmjs.com/package/@sntlr/registry-shell" },
@@ -92,14 +85,16 @@ export const projects: Project[] = [
         "Versioned docs with a version switcher",
         "English and French built in",
         "Full-text search",
-        "Component registry module with live previews",
+        "Registry Shell: component registry with live previews",
+        "White-label: your logo, colors and domain",
       ],
       fr: [
         "Export statique : hébergez-le n'importe où",
         "Documentation versionnée avec sélecteur de version",
         "Anglais et français inclus",
         "Recherche plein texte",
-        "Module de registre de composants avec aperçus en direct",
+        "Registry Shell : registre de composants avec aperçus en direct",
+        "Marque blanche : votre logo, vos couleurs, votre domaine",
       ],
     },
     install: ["npm install -D @sntlr/registry-shell", "npx registry-shell init"],
@@ -143,7 +138,7 @@ export const projects: Project[] = [
   },
   {
     slug: "jev-design-system",
-    name: "jev-design-system",
+    name: "JEV Design System",
     kind: { en: "Design-token reasoning", fr: "Raisonnement sur les jetons de design" },
     pitch: {
       en: "Catch design-token conflicts before they reach the product.",
@@ -177,7 +172,7 @@ export const projects: Project[] = [
   },
   {
     slug: "branding-guide-automation",
-    name: "Branding guide automation",
+    name: "Branding Guide Automation",
     kind: { en: "Brand packaging", fr: "Livraison de marque" },
     pitch: {
       en: "Generate a complete branding kit from one config file.",
@@ -204,7 +199,7 @@ export const projects: Project[] = [
   },
   {
     slug: "feature-requests",
-    name: "Feature requests",
+    name: "Feature Requests",
     kind: { en: "Public feedback forum", fr: "Forum de suggestions public" },
     pitch: {
       en: "Let users suggest features and upvote what matters to them.",
@@ -231,7 +226,7 @@ export const projects: Project[] = [
   },
   {
     slug: "support",
-    name: "Support desk",
+    name: "Support Desk",
     kind: { en: "Ticketing platform", fr: "Plateforme de billets" },
     pitch: {
       en: "One support inbox that sends tickets where your team works.",
@@ -258,7 +253,7 @@ export const projects: Project[] = [
   },
   {
     slug: "status",
-    name: "Status pages",
+    name: "Status Pages",
     kind: { en: "Status page service", fr: "Service de pages de statut" },
     pitch: {
       en: "Connect your hosted services and get one clear status page.",
@@ -283,32 +278,6 @@ export const projects: Project[] = [
     },
     cover: "uptime",
     featured: true,
-  },
-  {
-    slug: "hacking-framework",
-    name: "Hacking framework",
-    kind: { en: "Interactive hacking games", fr: "Jeux de piratage interactifs" },
-    pitch: {
-      en: "Procedural cities, networks and systems to hack, for games.",
-      fr: "Villes, réseaux et systèmes procéduraux à pirater, pour les jeux.",
-    },
-    description: {
-      en: "A framework for interactive hacking games: procedurally generated cities, internet and power networks, vulnerable systems and the companies behind them. It's a side project for later, not part of the core mission.",
-      fr: "Un cadriciel pour jeux de piratage interactifs : villes générées procéduralement, réseaux internet et électriques, systèmes vulnérables et les entreprises derrière eux. C'est un projet pour plus tard, en dehors de la mission principale.",
-    },
-    status: "someday",
-    category: "experiments",
-    tags: { en: ["Games", "Procedural", "Simulation"], fr: ["Jeux", "Procédural", "Simulation"] },
-    license: null,
-    features: {
-      en: ["Procedural cities and maps", "Network and vulnerability simulation", "Engine SDKs"],
-      fr: ["Villes et cartes procédurales", "Simulation de réseaux et de vulnérabilités", "SDK pour moteurs de jeu"],
-    },
-    roadmap: {
-      en: "Someday. Early map-generation experiments exist, but the tools above come first.",
-      fr: "Un jour. Des essais de génération de cartes existent, mais les outils ci-dessus passent d'abord.",
-    },
-    cover: "network",
   },
 ];
 

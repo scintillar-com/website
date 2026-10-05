@@ -5,9 +5,15 @@ import { Logo } from "./logo";
 import { LocaleSwitcher, NavLink } from "./nav-client";
 import { ThemeToggle } from "./theme";
 import { GithubIcon } from "./github-icon";
+import { MobileMenu } from "./mobile-menu";
 import { GITHUB_ORG } from "@/lib/site";
 
 export function Navbar({ locale, t }: { locale: Locale; t: Dictionary }) {
+  const links = [
+    { href: `/${locale}/projects`, label: t.nav.projects },
+    { href: `/${locale}/about`, label: t.nav.about },
+  ];
+
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <a
@@ -18,14 +24,16 @@ export function Navbar({ locale, t }: { locale: Locale; t: Dictionary }) {
       </a>
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-2 px-4 sm:px-6">
         <Link href={`/${locale}`} aria-label="Scintillar" className="mr-2 shrink-0">
-          <Logo variant="horizontal" className="hidden w-[132px] sm:inline-flex" />
-          <Logo variant="standalone" className="w-9 sm:hidden" />
+          <Logo variant="horizontal" className="w-[132px]" />
         </Link>
-        <nav className="flex items-center gap-1">
-          <NavLink href={`/${locale}/projects`}>{t.nav.projects}</NavLink>
-          <NavLink href={`/${locale}/about`}>{t.nav.about}</NavLink>
+        <nav className="hidden items-center gap-1 whitespace-nowrap md:flex">
+          {links.map((link) => (
+            <NavLink key={link.href} href={link.href}>
+              {link.label}
+            </NavLink>
+          ))}
         </nav>
-        <div className="ml-auto flex items-center gap-1.5">
+        <div className="ml-auto hidden items-center gap-1.5 md:flex">
           <a
             href={GITHUB_ORG}
             target="_blank"
@@ -38,6 +46,14 @@ export function Navbar({ locale, t }: { locale: Locale; t: Dictionary }) {
           </a>
           <LocaleSwitcher current={locale} label={t.nav.language} />
           <ThemeToggle label={t.nav.theme} />
+        </div>
+        <div className="ml-auto md:hidden">
+          <MobileMenu
+            locale={locale}
+            githubHref={GITHUB_ORG}
+            links={links}
+            t={{ menu: t.nav.menu, github: t.nav.github, language: t.nav.language, theme: t.nav.theme }}
+          />
         </div>
       </div>
     </header>
