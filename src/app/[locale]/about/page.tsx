@@ -26,7 +26,7 @@ export default async function AboutPage({ params }: Props) {
 
       <section className="mt-14">
         <h2 className="text-2xl">{t.about.mission}</h2>
-        <p className="mt-4 text-lg font-light leading-relaxed">{t.home.lead}</p>
+        <p className="mt-4 text-lg font-light leading-relaxed">{t.about.missionBody}</p>
       </section>
 
       <section className="mt-14 grid gap-10 sm:grid-cols-2">

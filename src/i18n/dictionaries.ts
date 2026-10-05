@@ -19,7 +19,7 @@ const en = {
   home: {
     eyebrow: "A digital playground for open-source tools",
     title: "Self-serve tools for teams that don't need the big bill.",
-    lead: "Scintillar builds free, white-label alternatives to larger and costlier tools: docs sites, component registries, feature request boards, support desks and status pages. We build them for our own use and share them as they are, for anyone who would rather run their own. The community around them is open to anyone who wants to help.",
+    lead: "Free, white-label alternatives to larger and costlier tools. Host them yourself, under your own brand.",
     browse: "Browse projects",
     github: "Scintillar on GitHub",
     featuredTitle: "Projects",
@@ -96,6 +96,7 @@ const en = {
     title: "About Scintillar",
     lead: "A digital playground for self-serve, open-source tools.",
     mission: "Mission",
+    missionBody: "Scintillar builds free, white-label alternatives to larger and costlier tools: docs sites, component registries, feature request boards, support desks and status pages. We build them for our own use and share them as they are, for anyone who would rather run their own. The community around them is open to anyone who wants to help.",
     contribute: "Contributing",
     contributeBody:
       "Each public project has its own repository under the scintillar-com organization on GitHub. Open an issue to report a bug or suggest an idea, or send a pull request. Planned projects open their repositories as soon as there's something to try.",
@@ -135,7 +136,7 @@ const fr: Dictionary = {
   home: {
     eyebrow: "Un terrain de jeu numérique pour des outils libres",
     title: "Des outils en libre-service pour les équipes qui n'ont pas besoin de la grosse facture.",
-    lead: "Scintillar crée des solutions de rechange gratuites et en marque blanche à des outils plus gros et plus coûteux : sites de documentation, registres de composants, tableaux de suggestions, comptoirs de support et pages de statut. Nous les construisons pour notre propre usage et les partageons tels quels, pour quiconque préfère héberger les siens. La communauté qui les entoure est ouverte à quiconque veut aider.",
+    lead: "Des solutions de rechange gratuites et en marque blanche à des outils plus gros et plus coûteux. Hébergez-les vous-même, sous votre propre marque.",
     browse: "Voir les projets",
     github: "Scintillar sur GitHub",
     featuredTitle: "Projets",
@@ -212,6 +213,7 @@ const fr: Dictionary = {
     title: "À propos de Scintillar",
     lead: "Un terrain de jeu numérique pour des outils libres en libre-service.",
     mission: "Mission",
+    missionBody: "Scintillar crée des solutions de rechange gratuites et en marque blanche à des outils plus gros et plus coûteux : sites de documentation, registres de composants, tableaux de suggestions, comptoirs de support et pages de statut. Nous les construisons pour notre propre usage et les partageons tels quels, pour quiconque préfère héberger les siens. La communauté qui les entoure est ouverte à quiconque veut aider.",
     contribute: "Contribuer",
     contributeBody:
       "Chaque projet public a son propre dépôt dans l'organisation scintillar-com sur GitHub. Ouvrez une issue pour signaler un bogue ou proposer une idée, ou envoyez une pull request. Les projets prévus ouvrent leur dépôt dès qu'il y a quelque chose à essayer.",
