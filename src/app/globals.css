@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Scintillar brand tokens, carried over from the 2025 site (jade green, hue 160). */
+:root {
+  --radius: 0.5rem;
+  --background: hsl(160 15% 95%);
+  --foreground: hsl(0 0% 5%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(240 10% 3.9%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(240 10% 3.9%);
+  --primary: hsl(160 100% 18%);
+  --primary-foreground: hsl(160 35% 93%);
+  --secondary: hsl(160 12% 90%);
+  --secondary-foreground: hsl(240 5.9% 10%);
+  --muted: hsl(160 12% 90%);
+  --muted-foreground: hsl(160 15% 28%);
+  --accent: hsl(160 30% 88%);
+  --accent-foreground: hsl(160 100% 14%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --border: hsl(160 10% 84%);
+  --input: hsl(160 10% 84%);
+  --ring: hsl(160 100% 18%);
+}
+
+.dark {
+  --background: hsl(160 78% 3%);
+  --foreground: hsl(0 0% 98%);
+  --card: hsl(158 86% 2%);
+  --card-foreground: hsl(0 0% 98%);
+  --popover: hsl(158 60% 4%);
+  --popover-foreground: hsl(0 0% 98%);
+  --primary: hsl(160 50% 50%);
+  --primary-foreground: hsl(0 0% 5%);
+  --secondary: hsl(160 30% 10%);
+  --secondary-foreground: hsl(0 0% 98%);
+  --muted: hsl(160 30% 10%);
+  --muted-foreground: hsl(160 32% 82%);
+  --accent: hsl(160 50% 8%);
+  --accent-foreground: hsl(0 0% 98%);
+  --destructive: hsl(0 62.8% 45%);
+  --border: hsl(160 20% 20%);
+  --input: hsl(160 20% 20%);
+  --ring: hsl(160 50% 50%);
+}
+
+@theme inline {
+  --font-sans: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-optical-sizing: auto;
+  }
+  h1, h2, h3, h4 {
+    @apply font-bold tracking-tight text-balance;
+  }
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+}
