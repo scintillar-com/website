@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { cn } from "@/lib/utils";
 
 /**
@@ -22,6 +22,8 @@ export interface ActivityGraphLabels {
   day: { one: string; other: string };
   /** "{n} commits in the last year" */
   total: { one: string; other: string };
+  /** Shown on phones, where only recent weeks fit. */
+  recent: string;
 }
 
 interface ActivityGraphProps {
@@ -34,9 +36,22 @@ function plural(t: { one: string; other: string }, n: number) {
   return (n === 1 ? t.one : t.other).replace("{n}", n.toLocaleString());
 }
 
+/** Weeks shown on phones, where a full year would shrink each cell to a few pixels. */
+const MOBILE_WEEKS = 17;
+const WIDE = "(min-width: 640px)";
+
+function subscribeWide(onChange: () => void) {
+  const mq = window.matchMedia(WIDE);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
+
 /** GitHub-style contribution heatmap: one column per week, one cell per day. */
 export function ActivityGraph({ weeks, locale, labels }: ActivityGraphProps) {
   const [hover, setHover] = useState<{ text: string; x: number; y: number } | null>(null);
+  // The server renders the full year; phones switch to recent weeks after hydration.
+  const wide = useSyncExternalStore(subscribeWide, () => window.matchMedia(WIDE).matches, () => true);
+  const shown = wide ? weeks : weeks.slice(-MOBILE_WEEKS);
 
   const max = Math.max(1, ...weeks.flatMap((w) => w.days));
   const total = weeks.reduce((sum, w) => sum + w.days.reduce((a, b) => a + b, 0), 0);
@@ -48,21 +63,21 @@ export function ActivityGraph({ weeks, locale, labels }: ActivityGraphProps) {
   const dayDate = (week: number, i: number) => new Date((week + i * 86400) * 1000);
 
   // Month label above the first week that starts in a new month.
-  const months = weeks.map((w, i) => {
+  const months = shown.map((w, i) => {
     const m = new Date(w.week * 1000).getUTCMonth();
-    const prev = i > 0 ? new Date(weeks[i - 1].week * 1000).getUTCMonth() : -1;
-    return m !== prev && i < weeks.length - 2 ? monthFmt.format(new Date(w.week * 1000)) : "";
+    const prev = i > 0 ? new Date(shown[i - 1].week * 1000).getUTCMonth() : -1;
+    return m !== prev && i < shown.length - 2 ? monthFmt.format(new Date(w.week * 1000)) : "";
   });
 
   return (
     <figure className="relative">
-      {/* Columns share the available width, so the whole year fits on any screen without scrolling. */}
+      {/* Columns share the available width, so the graph never scrolls sideways. */}
       <div onPointerLeave={() => setHover(null)}>
         <div
           className="grid grid-flow-col gap-[2px] sm:gap-[3px]"
-          style={{ gridTemplateColumns: `repeat(${weeks.length}, minmax(0, 1fr))`, gridTemplateRows: "auto repeat(7, auto)" }}
+          style={{ gridTemplateColumns: `repeat(${shown.length}, minmax(0, 1fr))`, gridTemplateRows: "auto repeat(7, auto)" }}
         >
-          {weeks.map((w, wi) => (
+          {shown.map((w, wi) => (
             <div key={w.week} className="contents">
               <span className="h-4 overflow-visible whitespace-nowrap text-[9px] leading-none text-muted-foreground sm:text-[10px]" aria-hidden="true">
                 {months[wi]}
@@ -105,7 +120,10 @@ export function ActivityGraph({ weeks, locale, labels }: ActivityGraphProps) {
       )}
 
       <figcaption className="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
-        <span>{plural(labels.total, total)}</span>
+        <span>
+          {plural(labels.total, total)}
+          {!wide && <span className="block">{labels.recent}</span>}
+        </span>
         <span className="flex items-center gap-1" aria-hidden="true">
           {labels.less}
           {LEVELS.map((c) => (

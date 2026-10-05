@@ -24,7 +24,7 @@ export async function ProjectActivity({ github, locale, t }: { github?: string; 
         <ActivityGraph
           weeks={weeks}
           locale={locale}
-          labels={{ less: t.less, more: t.more, day: t.day, total: t.total }}
+          labels={{ less: t.less, more: t.more, day: t.day, total: t.total, recent: t.recent }}
         />
       )}
       {contributors && contributors.length > 0 && (

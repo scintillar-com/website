@@ -68,8 +68,8 @@ export function ProjectsExplorer({ projects, categories, statusLabels, labels }:
 
   return (
     <div>
-      <div className="sticky top-16 z-30 -mx-4 flex flex-wrap items-center gap-3 bg-background/85 px-4 py-3 backdrop-blur-md sm:-mx-6 sm:px-6">
-        <div role="tablist" aria-label={`${labels.browse} / ${labels.filter}`} className="flex rounded-full border bg-muted/60 p-1">
+      <div className="-mx-4 flex flex-wrap items-center gap-3 px-4 py-3 sm:-mx-6 sm:px-6 md:sticky md:top-16 md:z-30 md:bg-background/85 md:backdrop-blur-md">
+        <div role="tablist" aria-label={`${labels.browse} / ${labels.filter}`} className="flex w-full rounded-full border bg-muted/60 p-1 sm:w-auto">
           <ViewTab active={view === "browse"} onClick={() => setView("browse")} icon={LayoutGrid}>
             {labels.browse}
           </ViewTab>
@@ -134,7 +134,7 @@ function ViewTab({
       aria-selected={active}
       onClick={onClick}
       className={cn(
-        "inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm transition-all",
+        "inline-flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-1.5 text-sm transition-all sm:flex-none",
         active ? "bg-background font-medium text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground",
       )}
     >
@@ -176,7 +176,7 @@ function CategoryChips({ categories }: { categories: ExplorerProps["categories"]
   };
 
   return (
-    <nav aria-label="Categories" className="flex min-w-0 flex-1 flex-wrap gap-1">
+    <nav aria-label="Categories" className="flex w-full min-w-0 flex-wrap gap-1 sm:w-auto sm:flex-1">
       {categories.map((c) => (
         <button
           key={c.id}
@@ -262,7 +262,10 @@ interface FilterBarProps {
 
 function FilterBar({ projects, categories, statusLabels, labels, query, setQuery, filters, setFilters }: FilterBarProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-  useEffect(() => inputRef.current?.focus(), []);
+  // Focus search on wider screens only; on phones it would pop the keyboard over the results.
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 640px)").matches) inputRef.current?.focus();
+  }, []);
 
   const options = useMemo(() => {
     const tags = [...new Set(projects.flatMap((p) => p.tags))].sort((a, b) => a.localeCompare(b));
@@ -286,7 +289,7 @@ function FilterBar({ projects, categories, statusLabels, labels, query, setQuery
   );
 
   return (
-    <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
+    <div className="flex w-full min-w-0 flex-wrap items-center gap-2 sm:w-auto sm:flex-1">
       <div className="relative w-full sm:w-64">
         <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
         <Input
@@ -299,6 +302,7 @@ function FilterBar({ projects, categories, statusLabels, labels, query, setQuery
           className="rounded-full pl-9"
         />
       </div>
+      <div className="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:flex-wrap">
       {(["category", "tag", "status", "license"] as const).map((key) => (
         <FilterMenu
           key={key}
@@ -308,6 +312,7 @@ function FilterBar({ projects, categories, statusLabels, labels, query, setQuery
           onToggle={(value) => toggle(key, value)}
         />
       ))}
+      </div>
     </div>
   );
 }
@@ -329,7 +334,7 @@ function FilterMenu({
         <Button
           variant="outline"
           size="sm"
-          className={cn("rounded-full", selected.length > 0 && "border-primary/50 text-primary")}
+          className={cn("w-full justify-between rounded-full sm:w-auto sm:justify-center", selected.length > 0 && "border-primary/50 text-primary")}
         >
           {label}
           {selected.length > 0 && (
