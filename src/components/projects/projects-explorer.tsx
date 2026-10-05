@@ -176,7 +176,7 @@ function CategoryChips({ categories }: { categories: ExplorerProps["categories"]
   };
 
   return (
-    <nav aria-label="Categories" className="-mx-4 flex min-w-0 flex-1 gap-1 overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:px-0">
+    <nav aria-label="Categories" className="flex min-w-0 flex-1 flex-wrap gap-1">
       {categories.map((c) => (
         <button
           key={c.id}

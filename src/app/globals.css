@@ -104,6 +104,8 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    /* Never scroll sideways; clip (unlike hidden) keeps sticky headers working. */
+    overflow-x: clip;
     font-optical-sizing: auto;
   }
   h1, h2, h3, h4 {

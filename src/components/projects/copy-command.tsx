@@ -10,7 +10,7 @@ export function CopyCommand({ command, labels }: { command: string; labels: { co
       <span aria-hidden="true" className="select-none opacity-60">
         $
       </span>
-      <code className="min-w-0 flex-1 overflow-x-auto whitespace-nowrap">{command}</code>
+      <code className="min-w-0 flex-1 break-all">{command}</code>
       <button
         type="button"
         onClick={async () => {

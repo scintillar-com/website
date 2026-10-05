@@ -57,7 +57,7 @@ export default async function ProjectPage({ params }: Props) {
         {tp.back}
       </Link>
 
-      <header className="mt-8 grid items-center gap-10 lg:grid-cols-[5fr_6fr]">
+      <header className="mt-8 grid grid-cols-1 items-center gap-10 lg:grid-cols-[5fr_6fr] [&>*]:min-w-0">
         <div>
           <p className="text-sm font-bold uppercase tracking-widest text-primary">{categoryInfo[project.category].title[locale]}</p>
           <h1 className="mt-3 text-5xl sm:text-6xl">{project.name}</h1>
@@ -103,7 +103,7 @@ export default async function ProjectPage({ params }: Props) {
         <ProjectCover kind={project.cover} size="lg" className="shadow-2xl shadow-primary/10" />
       </header>
 
-      <div className="mt-20 grid gap-14 lg:grid-cols-[3fr_2fr]">
+      <div className="mt-20 grid grid-cols-1 gap-14 lg:grid-cols-[3fr_2fr] [&>*]:min-w-0">
         <div className="space-y-14">
           <section aria-labelledby="overview">
             <h2 id="overview" className="text-2xl">

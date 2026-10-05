@@ -56,11 +56,15 @@ export function ActivityGraph({ weeks, locale, labels }: ActivityGraphProps) {
 
   return (
     <figure className="relative">
-      <div className="overflow-x-auto pb-2" onPointerLeave={() => setHover(null)}>
-        <div className="inline-grid min-w-full grid-flow-col gap-[3px]" style={{ gridTemplateRows: "auto repeat(7, 11px)" }}>
+      {/* Columns share the available width, so the whole year fits on any screen without scrolling. */}
+      <div onPointerLeave={() => setHover(null)}>
+        <div
+          className="grid grid-flow-col gap-[2px] sm:gap-[3px]"
+          style={{ gridTemplateColumns: `repeat(${weeks.length}, minmax(0, 1fr))`, gridTemplateRows: "auto repeat(7, auto)" }}
+        >
           {weeks.map((w, wi) => (
             <div key={w.week} className="contents">
-              <span className="h-4 text-[10px] leading-none text-muted-foreground" aria-hidden="true">
+              <span className="h-4 overflow-visible whitespace-nowrap text-[9px] leading-none text-muted-foreground sm:text-[10px]" aria-hidden="true">
                 {months[wi]}
               </span>
               {w.days.map((n, di) => {
@@ -74,10 +78,12 @@ export function ActivityGraph({ weeks, locale, labels }: ActivityGraphProps) {
                     onPointerEnter={(e) => {
                       const box = (e.currentTarget.closest("figure") as HTMLElement).getBoundingClientRect();
                       const cell = e.currentTarget.getBoundingClientRect();
-                      setHover({ text, x: cell.left - box.left + cell.width / 2, y: cell.top - box.top });
+                      // Keep the tooltip inside the figure so it never widens the page.
+                      const x = Math.min(Math.max(cell.left - box.left + cell.width / 2, 90), box.width - 90);
+                      setHover({ text, x, y: cell.top - box.top });
                     }}
                     className={cn(
-                      "size-[11px] rounded-[2px] outline-offset-1 transition-[outline-color] hover:outline hover:outline-2 hover:outline-foreground/60",
+                      "aspect-square w-full rounded-[2px] outline-offset-1 transition-[outline-color] hover:outline hover:outline-2 hover:outline-foreground/60",
                       LEVELS[level(n)],
                     )}
                   />
