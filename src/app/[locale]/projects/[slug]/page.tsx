@@ -103,7 +103,7 @@ export default async function ProjectPage({ params }: Props) {
         <ProjectCover kind={project.cover} size="lg" className="shadow-2xl shadow-primary/10" />
       </header>
 
-      <div className="mt-20 grid gap-14 lg:grid-cols-[2fr_1fr]">
+      <div className="mt-20 grid gap-14 lg:grid-cols-[3fr_2fr]">
         <div className="space-y-14">
           <section aria-labelledby="overview">
             <h2 id="overview" className="text-2xl">
@@ -156,12 +156,12 @@ export default async function ProjectPage({ params }: Props) {
           </section>
         </div>
 
-        <aside className="h-fit rounded-2xl border bg-card p-6 lg:sticky lg:top-24">
-          <dl className="space-y-5 text-sm">
+        <aside className="h-fit rounded-2xl border bg-card p-6 sm:p-8 lg:sticky lg:top-24">
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-6 text-sm">
             <Meta label={tp.status}>{t.status[project.status]}</Meta>
             <Meta label={tp.category}>{categoryInfo[project.category].title[locale]}</Meta>
             <Meta label={tp.license}>{project.license ?? tp.noLicense}</Meta>
-            <Meta label={tp.links}>
+            <Meta label={tp.links} className="col-span-2">
               {project.github || project.links ? (
                 <ul className="flex flex-wrap gap-2">
                   {project.github && (
@@ -215,9 +215,9 @@ export default async function ProjectPage({ params }: Props) {
   );
 }
 
-function Meta({ label, children }: { label: string; children: React.ReactNode }) {
+function Meta({ label, children, className }: { label: string; children: React.ReactNode; className?: string }) {
   return (
-    <div>
+    <div className={className}>
       <dt className="text-xs font-bold uppercase tracking-widest text-muted-foreground">{label}</dt>
       <dd className="mt-1.5">{children}</dd>
     </div>
