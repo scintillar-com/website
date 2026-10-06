@@ -77,7 +77,7 @@ export const projects: Project[] = [
     category: "docs-design",
     tags: { en: ["Documentation", "Search", "Design systems"], fr: ["Documentation", "Recherche", "Design systems"] },
     license: "MIT",
-    github: "https://github.com/scintillar-com/registry-shell",
+    github: "https://github.com/scintillar-com/docs",
     links: { live: "https://ui.sntlr.app", npm: "https://www.npmjs.com/package/@sntlr/registry-shell" },
     features: {
       en: [
@@ -117,7 +117,7 @@ export const projects: Project[] = [
     category: "docs-design",
     tags: { en: ["Components", "Design system", "Accessibility"], fr: ["Composants", "Design system", "Accessibilité"] },
     license: "MIT",
-    github: "https://github.com/scintillar-com/registry",
+    github: "https://github.com/scintillar-com/ui",
     links: { live: "https://ui.sntlr.app" },
     features: {
       en: [
