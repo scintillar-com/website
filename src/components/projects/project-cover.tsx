@@ -143,29 +143,6 @@ const covers: Record<CoverKind, React.ReactNode> = {
       </div>
     </Window>
   ),
-  brand: (
-    <div className="flex items-end gap-[0.8em]">
-      <Window title="Brand kit" className="flex-1">
-        <div className="space-y-[0.45em]">
-          {["assets/", "fonts/", "logos/", "prints/", "guide.pdf", "estimate.csv"].map((x, i) => (
-            <span key={x} className={cn("block", i > 3 ? "text-primary" : "text-muted-foreground")}>
-              {i > 3 ? "▸ " : "▾ "}
-              {x}
-            </span>
-          ))}
-        </div>
-      </Window>
-      <div className="w-[38%] space-y-[0.5em] rounded-[0.8em] border bg-background/95 p-[0.9em] shadow-lg">
-        <div className="flex gap-[0.4em]">
-          <span className="size-[1.8em] rounded-[0.4em] bg-primary" />
-          <span className="size-[1.8em] rounded-[0.4em] bg-primary/50" />
-          <span className="size-[1.8em] rounded-[0.4em] bg-foreground" />
-        </div>
-        <span className="block text-[1.8em] font-bold leading-none">Aa</span>
-        <Bar w="80%" />
-      </div>
-    </div>
-  ),
   upvotes: (
     <Window title="Feedback · My product">
       <div className="space-y-[0.6em]">
