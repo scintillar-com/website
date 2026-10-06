@@ -1,0 +1,234 @@
+"use client";
+
+import type { CoverKind } from "@/content/projects";
+import { cn } from "@/lib/utils";
+
+/** Moves the cover's glow to the pointer. Writes CSS variables directly, so it never re-renders. */
+function followPointer(e: React.PointerEvent<HTMLDivElement>) {
+  if (e.pointerType === "touch") return;
+  const el = e.currentTarget;
+  const box = el.getBoundingClientRect();
+  el.style.setProperty("--glow-x", `${((e.clientX - box.left) / box.width) * 100}%`);
+  el.style.setProperty("--glow-y", `${((e.clientY - box.top) / box.height) * 100}%`);
+}
+
+function resetGlow(e: React.PointerEvent<HTMLDivElement>) {
+  e.currentTarget.style.removeProperty("--glow-x");
+  e.currentTarget.style.removeProperty("--glow-y");
+}
+
+/**
+ * Cover art for a project: a small mock of the product's UI drawn with plain markup,
+ * so covers stay crisp, themeable and light without screenshots.
+ */
+export function ProjectCover({
+  kind,
+  size = "md",
+  className,
+}: {
+  kind: CoverKind;
+  size?: "sm" | "md" | "lg";
+  className?: string;
+}) {
+  return (
+    <div
+      aria-hidden="true"
+      onPointerMove={followPointer}
+      onPointerLeave={resetGlow}
+      className={cn(
+        "cover-glow relative isolate flex items-center justify-center overflow-hidden rounded-xl border bg-[radial-gradient(120%_90%_at_var(--glow-x)_var(--glow-y),color-mix(in_oklab,var(--primary)_28%,transparent),transparent_60%),linear-gradient(160deg,color-mix(in_oklab,var(--primary)_14%,var(--card)),var(--card))]",
+        size === "sm" ? "aspect-[4/3] text-[6px]" : size === "lg" ? "aspect-[16/10] text-[11px] sm:text-[13px]" : "aspect-[16/10] text-[9px]",
+        className,
+      )}
+    >
+      <Grid />
+      <div className="relative w-[78%] transition-transform duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-[1.03]">
+        {covers[kind]}
+      </div>
+    </div>
+  );
+}
+
+function Grid() {
+  return (
+    <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,color-mix(in_oklab,var(--primary)_10%,transparent)_1px,transparent_1px),linear-gradient(to_bottom,color-mix(in_oklab,var(--primary)_10%,transparent)_1px,transparent_1px)] bg-[size:2em_2em] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
+  );
+}
+
+function Window({ title, children, className }: { title: string; children: React.ReactNode; className?: string }) {
+  return (
+    <div className={cn("overflow-hidden rounded-[0.8em] border bg-background/95 shadow-xl shadow-primary/10", className)}>
+      <div className="flex items-center gap-[0.5em] border-b px-[1em] py-[0.6em]">
+        <span className="size-[0.7em] rounded-full bg-primary/70" />
+        <span className="size-[0.7em] rounded-full bg-primary/40" />
+        <span className="size-[0.7em] rounded-full bg-primary/20" />
+        <span className="ml-[0.6em] truncate text-muted-foreground">{title}</span>
+      </div>
+      <div className="p-[1em]">{children}</div>
+    </div>
+  );
+}
+
+const Bar = ({ w, className }: { w: string; className?: string }) => (
+  <span className={cn("block h-[0.6em] rounded-full bg-muted-foreground/25", className)} style={{ width: w }} />
+);
+
+const covers: Record<CoverKind, React.ReactNode> = {
+  docs: (
+    <Window title="docs.yourbrand.com">
+      <div className="flex gap-[1em]">
+        <div className="w-[28%] space-y-[0.7em] border-r pr-[0.8em]">
+          <span className="block rounded-[0.3em] bg-primary/15 px-[0.4em] py-[0.2em] font-bold text-primary">v2.8</span>
+          {["Welcome", "Getting started", "Guides", "FAQ"].map((x, i) => (
+            <span key={x} className={cn("block truncate", i === 1 ? "font-bold text-primary" : "text-muted-foreground")}>
+              {x}
+            </span>
+          ))}
+        </div>
+        <div className="flex-1 space-y-[0.7em]">
+          <span className="block text-[1.5em] font-bold">Getting started</span>
+          <Bar w="92%" />
+          <Bar w="70%" />
+          <span className="flex items-center justify-between rounded-[0.4em] border px-[0.6em] py-[0.5em] text-muted-foreground">
+            <span className="truncate">Search docs…</span>
+            <span className="shrink-0 rounded-[0.3em] bg-muted px-[0.4em]">⌘K</span>
+          </span>
+          <Bar w="80%" />
+        </div>
+      </div>
+    </Window>
+  ),
+  components: (
+    <div className="grid grid-cols-2 gap-[0.8em]">
+      <Window title="Buttons" className="col-span-2">
+        <div className="flex flex-wrap gap-[0.5em]">
+          <span className="rounded-[0.4em] bg-primary px-[0.9em] py-[0.4em] font-bold text-primary-foreground">Primary</span>
+          <span className="rounded-[0.4em] border px-[0.9em] py-[0.4em]">Outline</span>
+          <span className="rounded-[0.4em] px-[0.9em] py-[0.4em] text-muted-foreground">Ghost</span>
+        </div>
+      </Window>
+      <div className="min-w-0 rounded-[0.8em] border bg-background/95 p-[0.9em] shadow-lg">
+        <span className="mb-[0.5em] block text-muted-foreground">Email</span>
+        <span className="block truncate rounded-[0.4em] border px-[0.6em] py-[0.4em]">ada@sntlr.app</span>
+      </div>
+      <div className="flex min-w-0 items-center justify-between gap-[0.5em] rounded-[0.8em] border bg-background/95 p-[0.9em] shadow-lg">
+        <span className="truncate">Live cursors</span>
+        <span className="flex h-[1.4em] w-[2.4em] shrink-0 items-center justify-end rounded-full bg-primary p-[0.2em]">
+          <span className="size-[1em] rounded-full bg-primary-foreground" />
+        </span>
+      </div>
+    </div>
+  ),
+  tokens: (
+    <Window title="Design check">
+      <div className="space-y-[0.6em]">
+        {[
+          ["Primary button", "ok"],
+          ["Card background", "ok"],
+          ["Error message", "conflict"],
+          ["Link color", "ok"],
+        ].map(([name, state]) => (
+          <div key={name} className="flex items-center justify-between gap-[0.6em]">
+            <span className="truncate">{name}</span>
+            <span
+              className={cn(
+                "shrink-0 rounded-full px-[0.6em] py-[0.1em] font-bold",
+                state === "ok" ? "bg-primary/15 text-primary" : "bg-destructive/15 text-destructive",
+              )}
+            >
+              {state === "ok" ? "✓" : "Clash · fix suggested"}
+            </span>
+          </div>
+        ))}
+      </div>
+    </Window>
+  ),
+  brand: (
+    <div className="flex items-end gap-[0.8em]">
+      <Window title="Brand kit" className="flex-1">
+        <div className="space-y-[0.45em]">
+          {["assets/", "fonts/", "logos/", "prints/", "guide.pdf", "estimate.csv"].map((x, i) => (
+            <span key={x} className={cn("block", i > 3 ? "text-primary" : "text-muted-foreground")}>
+              {i > 3 ? "▸ " : "▾ "}
+              {x}
+            </span>
+          ))}
+        </div>
+      </Window>
+      <div className="w-[38%] space-y-[0.5em] rounded-[0.8em] border bg-background/95 p-[0.9em] shadow-lg">
+        <div className="flex gap-[0.4em]">
+          <span className="size-[1.8em] rounded-[0.4em] bg-primary" />
+          <span className="size-[1.8em] rounded-[0.4em] bg-primary/50" />
+          <span className="size-[1.8em] rounded-[0.4em] bg-foreground" />
+        </div>
+        <span className="block text-[1.8em] font-bold leading-none">Aa</span>
+        <Bar w="80%" />
+      </div>
+    </div>
+  ),
+  upvotes: (
+    <Window title="Feedback · My product">
+      <div className="space-y-[0.6em]">
+        {[
+          ["Dark mode for the editor", 128, true],
+          ["Export to CSV", 87, false],
+          ["SSO with Google", 54, false],
+        ].map(([label, votes, active]) => (
+          <div key={label as string} className="flex items-center gap-[0.7em] rounded-[0.5em] border p-[0.5em]">
+            <span
+              className={cn(
+                "flex w-[3.2em] shrink-0 flex-col items-center rounded-[0.4em] py-[0.2em] font-bold",
+                active ? "bg-primary text-primary-foreground" : "bg-muted",
+              )}
+            >
+              <span>▲</span>
+              {votes as number}
+            </span>
+            <span className="truncate">{label as string}</span>
+          </div>
+        ))}
+      </div>
+    </Window>
+  ),
+  tickets: (
+    <Window title="Support · Inbox">
+      <div className="space-y-[0.55em]">
+        {[
+          ["#1042", "Can't reset password", "GitHub"],
+          ["#1041", "Invoice in French?", "Notion"],
+          ["#1040", "Webhook retries", "Inbox"],
+        ].map(([id, subject, dest]) => (
+          <div key={id} className="flex items-center gap-[0.6em]">
+            <span className="text-muted-foreground">{id}</span>
+            <span className="flex-1 truncate">{subject}</span>
+            <span className="shrink-0 rounded-full border border-primary/40 px-[0.6em] text-primary">→ {dest}</span>
+          </div>
+        ))}
+      </div>
+    </Window>
+  ),
+  uptime: (
+    <Window title="status.yourbrand.com">
+      <div className="mb-[0.8em] flex items-center gap-[0.5em] font-bold">
+        <span className="size-[0.8em] animate-pulse rounded-full bg-primary" />
+        All systems operational
+      </div>
+      {["API", "Dashboard", "Webhooks"].map((name, row) => (
+        <div key={name} className="mb-[0.5em] flex items-center gap-[0.6em]">
+          <span className="w-[5.5em] shrink-0 text-muted-foreground">{name}</span>
+          <div className="flex flex-1 gap-[0.15em]">
+            {Array.from({ length: 30 }, (_, i) => (
+              <span
+                key={i}
+                className={cn(
+                  "h-[1.6em] flex-1 rounded-[0.15em]",
+                  row === 1 && i === 21 ? "bg-destructive/70" : row === 2 && i === 9 ? "bg-primary/40" : "bg-primary",
+                )}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </Window>
+  ),
+};

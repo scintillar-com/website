@@ -4,17 +4,21 @@
   "rsc": true,
   "tsx": true,
   "tailwind": {
-    "config": "tailwind.config.ts",
-    "css": "app/globals.css",
+    "config": "",
+    "css": "src/app/globals.css",
     "baseColor": "zinc",
     "cssVariables": true,
     "prefix": ""
   },
+  "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
-    "utils": "@/lib/utils/cn",
+    "utils": "@/lib/utils",
     "ui": "@/components/ui",
     "lib": "@/lib",
-    "hooks": "@/lib/hooks"
+    "hooks": "@/hooks"
+  },
+  "registries": {
+    "@sntlr": "https://ui.sntlr.app/r/{name}.json"
   }
 }
