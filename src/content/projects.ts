@@ -7,7 +7,7 @@ export const categories = ["docs-design", "feedback-support", "operations"] as c
 export type Category = (typeof categories)[number];
 
 /** Which mock UI the project's cover renders (see components/projects/project-cover.tsx). */
-export type CoverKind = "docs" | "components" | "tokens" | "brand" | "upvotes" | "tickets" | "uptime";
+export type CoverKind = "docs" | "components" | "tokens" | "upvotes" | "tickets" | "uptime";
 
 export interface Project {
   slug: string;
@@ -152,6 +152,7 @@ export const projects: Project[] = [
     category: "docs-design",
     tags: { en: ["Design systems", "Consistency", "AI"], fr: ["Design systems", "Cohérence", "IA"] },
     license: null,
+    repoPrivate: true,
     features: {
       en: [
         "Rules for what each color, spacing and type style may be used for",
@@ -169,33 +170,6 @@ export const projects: Project[] = [
       fr: "Prévu. Pas encore disponible.",
     },
     cover: "tokens",
-  },
-  {
-    slug: "branding-guide-automation",
-    name: "Branding Guide Automation",
-    kind: { en: "Brand kits", fr: "Trousses de marque" },
-    pitch: {
-      en: "Describe a brand once and get the full brand kit.",
-      fr: "Décrivez une marque une seule fois et obtenez toute la trousse.",
-    },
-    description: {
-      en: "Fill in a brand once and get everything a brand delivery needs: organized folders for logos, fonts, prints and templates, a brand guide and an itemized estimate. An early prototype exists, and a new version is planned.",
-      fr: "Remplissez une marque une seule fois et obtenez tout ce qu'une livraison de marque demande : des dossiers organisés pour les logos, polices, imprimés et gabarits, un guide de marque et une estimation détaillée. Un premier prototype existe et une nouvelle version est prévue.",
-    },
-    status: "planned",
-    category: "docs-design",
-    tags: { en: ["Branding", "Brand guide", "Estimates"], fr: ["Image de marque", "Guide de marque", "Estimations"] },
-    license: null,
-    repoPrivate: true,
-    features: {
-      en: ["Organized brand-kit folders", "A brand guide, generated for you", "Itemized estimates", "English and French"],
-      fr: ["Dossiers de trousse de marque organisés", "Un guide de marque, généré pour vous", "Estimations détaillées", "Anglais et français"],
-    },
-    roadmap: {
-      en: "An early prototype exists, and a new version is planned.",
-      fr: "Un premier prototype existe et une nouvelle version est prévue.",
-    },
-    cover: "brand",
   },
   {
     slug: "feature-requests",
