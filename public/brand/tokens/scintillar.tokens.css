@@ -1,0 +1,27 @@
+/* Scintillar brand tokens. Light theme on :root, dark theme on .dark. */
+:root {
+  --sntlr-font: "JetBrains Mono", ui-monospace, monospace;
+  --sntlr-background: #F0F4F3;
+  --sntlr-foreground: #0D0D0D;
+  --sntlr-card: #FFFFFF;
+  --sntlr-primary: #005C3D;
+  --sntlr-primary-foreground: #E7F3EF;
+  --sntlr-muted: #E2E9E7;
+  --sntlr-muted-foreground: #3D524B;
+  --sntlr-accent: #D7EAE3;
+  --sntlr-border: #D2DAD8;
+  --sntlr-logo: #005E3E;
+}
+
+.dark {
+  --sntlr-background: #020E0A;
+  --sntlr-foreground: #FAFAFA;
+  --sntlr-card: #010906;
+  --sntlr-primary: #40BF95;
+  --sntlr-primary-foreground: #0D0D0D;
+  --sntlr-muted: #12211C;
+  --sntlr-muted-foreground: #C2E0D6;
+  --sntlr-accent: #0A1F18;
+  --sntlr-border: #293D36;
+  --sntlr-logo: #5CD6AD;
+}

@@ -1,0 +1,109 @@
+{
+  "$description": "Scintillar brand tokens (W3C Design Tokens format).",
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "$value": [
+        "JetBrains Mono",
+        "ui-monospace",
+        "monospace"
+      ]
+    },
+    "weight": {
+      "heading": {
+        "$type": "fontWeight",
+        "$value": 700
+      },
+      "body": {
+        "$type": "fontWeight",
+        "$value": 300
+      }
+    }
+  },
+  "color": {
+    "light": {
+      "background": {
+        "$type": "color",
+        "$value": "#F0F4F3"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#0D0D0D"
+      },
+      "card": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "#005C3D"
+      },
+      "primary-foreground": {
+        "$type": "color",
+        "$value": "#E7F3EF"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "#E2E9E7"
+      },
+      "muted-foreground": {
+        "$type": "color",
+        "$value": "#3D524B"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "#D7EAE3"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "#D2DAD8"
+      },
+      "logo": {
+        "$type": "color",
+        "$value": "#005E3E"
+      }
+    },
+    "dark": {
+      "background": {
+        "$type": "color",
+        "$value": "#020E0A"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "#FAFAFA"
+      },
+      "card": {
+        "$type": "color",
+        "$value": "#010906"
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "#40BF95"
+      },
+      "primary-foreground": {
+        "$type": "color",
+        "$value": "#0D0D0D"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "#12211C"
+      },
+      "muted-foreground": {
+        "$type": "color",
+        "$value": "#C2E0D6"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "#0A1F18"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "#293D36"
+      },
+      "logo": {
+        "$type": "color",
+        "$value": "#5CD6AD"
+      }
+    }
+  }
+}
