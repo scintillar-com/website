@@ -34,6 +34,7 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
               </FooterLink>
             ))}
             <FooterLink href={`/${locale}/about`}>{t.nav.about}</FooterLink>
+            <FooterLink href={`/${locale}/brand`}>{t.nav.brand}</FooterLink>
           </FooterColumn>
           <FooterColumn title={t.footer.legal}>
             <FooterLink href={`/${locale}/legal/privacy`}>{t.footer.privacy}</FooterLink>

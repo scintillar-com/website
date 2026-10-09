@@ -10,6 +10,7 @@ const en = {
   nav: {
     projects: "Tools",
     about: "About",
+    brand: "Brand",
     github: "GitHub",
     skip: "Skip to content",
     theme: "Toggle theme",
@@ -139,6 +140,7 @@ const fr: Dictionary = {
   nav: {
     projects: "Outils",
     about: "À propos",
+    brand: "Marque",
     github: "GitHub",
     skip: "Aller au contenu",
     theme: "Changer le thème",

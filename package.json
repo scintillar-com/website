@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "brand-kit": "node scripts/build-brand-kit.mjs"
   },
   "engines": {
     "node": ">=22"

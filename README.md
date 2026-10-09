@@ -32,13 +32,15 @@ No environment variables are required for local work. These are optional:
 | --- | --- |
 | `src/content/projects.ts` | Every tool on the site: name, pitch, description, status, category, tags, license, links, features, install commands. Add or edit a tool here. |
 | `src/i18n/dictionaries.ts` | Interface text in English and French. |
-| `src/app/[locale]/` | Pages: home, `tools`, `tools/[slug]`, `about` and `legal/privacy`. The About and privacy pages keep their own copy in the page file. |
+| `src/app/[locale]/` | Pages: home, `tools`, `tools/[slug]`, `about`, `brand` and `legal/privacy`. The About, Brand and privacy pages keep their own copy in the page file. |
 | `src/components/projects/` | Tool cards, cover mockups, the Browse and Filter views, and the activity graph. |
 | `src/components/site/` | Navbar, mobile menu, footer, logo, theme and language switches, consent notice. |
 | `src/components/ui/` | Components installed from [Scintillar UI](https://ui.sntlr.app). |
 | `src/lib/github.ts` | GitHub API calls for activity and contributors, cached for a day. |
 | `src/proxy.ts` | Sends visitors to `/en` or `/fr` based on their language cookie or browser settings. |
-| `public/brand/` | Scintillar logos, standalone and horizontal, in light, dark, black and white. |
+| `public/brand/` | Scintillar logos used by the site itself, standalone and horizontal, in light, dark, black and white. |
+| `public/brand/kit/`, `public/brand/tokens/` | The downloadable brand kit shown on the Brand page: every logo and icon as SVG and PNG (1x, 2x, 4x), plus color tokens. |
+| `public/brand/scintillar-brand-kit.zip` | The same kit in one file. Rebuild it after changing anything in `kit/` or `tokens/` (see below). |
 
 ### Adding a tool
 
@@ -47,6 +49,10 @@ No environment variables are required for local work. These are optional:
 3. Set `github` once the repository is public. Until then, set `repoPrivate: true` so the page says "Repo coming soon".
 
 Write tool copy like a product description: say what people get and why it helps, not what it's built with. Install commands are fine.
+
+### Updating the brand kit
+
+The source files live in the Scintillar design folder (`design/brand/`). Files named `on-light` have dark ink and go on light backgrounds; `on-dark` files have light ink. After replacing files in `public/brand/kit/` or `public/brand/tokens/`, run `pnpm brand-kit` to rebuild the zip, then update the Brand page if a variant or color changed.
 
 ### Adding a component
 
